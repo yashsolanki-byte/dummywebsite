@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,8 +83,14 @@
     .gallery img:hover {
       transform: scale(1.1);
     }
+
+    .download {
+      margin-top: 40px;
+      padding: 20px;
+    }
   </style>
-<!-- Google tag (gtag.js) -->
+
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YLXCQG635F"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -97,9 +104,9 @@
   <header>
     <h1>My Interactive Dummy Website</h1>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#form">Contact Form</a>
-      <a href="#gallery">Gallery</a>
+      <a href="#home" onclick="gtag('event','nav_click',{menu:'Home'})">Home</a>
+      <a href="#form" onclick="gtag('event','nav_click',{menu:'Contact Form'})">Contact Form</a>
+      <a href="#gallery" onclick="gtag('event','nav_click',{menu:'Gallery'})">Gallery</a>
     </nav>
   </header>
 
@@ -107,14 +114,23 @@
     <h2>Welcome!</h2>
     <p>Explore the site and interact with different elements for GA4 testing.</p>
 
-    <!-- Buttons for GA4 event tracking -->
-    <button onclick="alert('You clicked Button 1!')">Button 1</button>
-    <button onclick="alert('You clicked Button 2!')">Button 2</button>
+    <!-- Buttons with custom GA4 events -->
+    <button onclick="gtag('event','button_click',{button_name:'Button 1'})">Button 1</button>
+    <button onclick="gtag('event','button_click',{button_name:'Button 2'})">Button 2</button>
 
-    <!-- Form Section -->
+    <!-- Newsletter Signup -->
+    <section id="newsletter">
+      <h3>Subscribe to our Newsletter</h3>
+      <form onsubmit="gtag('event','newsletter_signup',{form:'Newsletter'}); alert('Subscribed!'); return false;">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+
+    <!-- Contact Form with GA4 event -->
     <section id="form">
       <h3>Contact Form</h3>
-      <form onsubmit="alert('Form submitted!'); return false;">
+      <form onsubmit="gtag('event','form_submit',{form:'Contact Form'}); alert('Form submitted!'); return false;">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" rows="4" placeholder="Your Message"></textarea>
@@ -122,15 +138,27 @@
       </form>
     </section>
 
-    <!-- Image Gallery -->
+    <!-- Image Gallery with click events -->
     <section id="gallery" class="gallery">
       <h3>Image Gallery</h3>
-      <img src="https://via.placeholder.com/150/0073e6/ffffff?text=Image+1" alt="Image 1" onclick="alert('You clicked Image 1')">
-      <img src="https://via.placeholder.com/150/ff5733/ffffff?text=Image+2" alt="Image 2" onclick="alert('You clicked Image 2')">
-      <img src="https://via.placeholder.com/150/28a745/ffffff?text=Image+3" alt="Image 3" onclick="alert('You clicked Image 3')">
+      <img src="https://via.placeholder.com/150/0073e6/ffffff?text=Image+1" alt="Image 1" onclick="gtag('event','image_click',{image:'Image 1'})">
+      <img src="https://via.placeholder.com/150/ff5733/ffffff?text=Image+2" alt="Image 2" onclick="gtag('event','image_click',{image:'Image 2'})">
+      <img src="https://via.placeholder.com/150/28a745/ffffff?text=Image+3" alt="Image 3" onclick="gtag('event','image_click',{image:'Image 3'})">
+    </section>
+
+    <!-- Download Section -->
+    <section class="download">
+      <h3>Download Resources</h3>
+      <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" 
+         target="_blank" 
+         onclick="gtag('event','download',{file:'Dummy PDF'})">
+         <button>Download PDF</button>
+      </a>
     </section>
   </main>
 </body>
 </html>
+
+
 
 

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Dummy Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #0073e6;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 40px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px;
+    }
+
+    button:hover {
+      background: #005bb5;
+    }
+
+    form {
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 400px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .gallery {
+      margin-top: 40px;
+    }
+
+    .gallery img {
+      width: 150px;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GWC3WD26VN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GWC3WD26VN');
+</script>
+</head>
+<body>
+  <header>
+    <h1>My Interactive Dummy Website</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#form">Contact Form</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <h2>Welcome!</h2>
+    <p>Explore the site and interact with different elements for GA4 testing.</p>
+
+    <!-- Buttons for GA4 event tracking -->
+    <button onclick="alert('You clicked Button 1!')">Button 1</button>
+    <button onclick="alert('You clicked Button 2!')">Button 2</button>
+
+    <!-- Form Section -->
+    <section id="form">
+      <h3>Contact Form</h3>
+      <form onsubmit="alert('Form submitted!'); return false;">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Image Gallery -->
+    <section id="gallery" class="gallery">
+      <h3>Image Gallery</h3>
+      <img src="https://via.placeholder.com/150/0073e6/ffffff?text=Image+1" alt="Image 1" onclick="alert('You clicked Image 1')">
+      <img src="https://via.placeholder.com/150/ff5733/ffffff?text=Image+2" alt="Image 2" onclick="alert('You clicked Image 2')">
+      <img src="https://via.placeholder.com/150/28a745/ffffff?text=Image+3" alt="Image 3" onclick="alert('You clicked Image 3')">
+    </section>
+  </main>
+</body>
+</html>
+

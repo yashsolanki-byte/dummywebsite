@@ -118,4 +118,36 @@
       <img src="https://via.placeholder.com/150/28a745/ffffff?text=Image+3" alt="Image 3" onclick="gtag('event','image_click',{image:'Image 3'})">
     </section>
 
-    <section c
+    <section class="download">
+      <h3>Download Resources</h3>
+      <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" 
+         target="_blank" 
+         onclick="gtag('event','download',{file:'Dummy PDF'})">
+         <button>Download PDF</button>
+      </a>
+    </section>
+
+    <!-- 🛒 Dummy Purchase Section -->
+    <section class="purchase">
+      <h3>Simulate a Purchase</h3>
+      <p>Click below to simulate a purchase event and go to the Thank You page (no real payment).</p>
+      <button onclick="simulatePurchase()">Complete Purchase</button>
+    </section>
+
+    <script>
+      function simulatePurchase() {
+        const transactionId = 'TXN' + Math.floor(Math.random() * 1000000);
+        // Save data temporarily in URL (for thank-you page)
+        const params = new URLSearchParams({
+          txn: transactionId,
+          value: 49.99,
+          product: 'Dummy Product'
+        });
+        // Redirect to thank you page with data
+        window.location.href = 'thankyou.html?' + params.toString();
+      }
+    </script>
+
+  </main>
+</body>
+</html>

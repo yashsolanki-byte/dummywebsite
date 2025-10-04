@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,21 +83,20 @@
       transform: scale(1.1);
     }
 
-    .download {
+    .download, .purchase {
       margin-top: 40px;
       padding: 20px;
     }
   </style>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLXCQG635F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YLXCQG635F');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YLXCQG635F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YLXCQG635F');
+  </script>
 </head>
 <body>
   <header>
@@ -155,10 +153,32 @@
          <button>Download PDF</button>
       </a>
     </section>
+
+    <!-- 🛒 Dummy Purchase Section -->
+    <section class="purchase">
+      <h3>Simulate a Purchase</h3>
+      <p>Click below to simulate a purchase event (no real payment).</p>
+      <button onclick="simulatePurchase()">Complete Purchase</button>
+    </section>
+
+    <script>
+      // Simulated purchase function
+      function simulatePurchase() {
+        const transactionId = 'TXN' + Math.floor(Math.random() * 1000000);
+        gtag('event', 'purchase', {
+          transaction_id: transactionId,
+          value: 49.99,
+          currency: 'USD',
+          items: [{
+            item_name: 'Dummy Product',
+            item_id: 'P123',
+            price: 49.99,
+            quantity: 1
+          }]
+        });
+        alert('Purchase simulated! Transaction ID: ' + transactionId);
+      }
+    </script>
   </main>
 </body>
 </html>
-
-
-
-
